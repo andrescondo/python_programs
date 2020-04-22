@@ -7,6 +7,7 @@ def main():
   figure = turtle.Turtle()
 
   make_figure(figure)
+  turtle.mainloop()
 
 def make_figure(figure):
   side = int(raw_input('Lados de la figura: '))
@@ -25,4 +26,3 @@ def make_line_and_turn(figure, length):
 if __name__ == '__main__':
   main()
 
-turtle.mainloop()
