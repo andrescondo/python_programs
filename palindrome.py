@@ -1,5 +1,13 @@
 #-*- coding: utf-8 -*-
 
+def Palindrome2(word):
+  reversed_word = word[::-1]
+
+  if reversed_word == word:
+    return True
+
+  return False
+
 def Palindrome(word):
   reversed_letters = []
 
@@ -16,7 +24,7 @@ def Palindrome(word):
 
 if __name__ == '__main__':
   word = str(raw_input('Escriba una palabra: '))
-  result = Palindrome(word)
+  result = Palindrome2(word)
 
   if result is True:
     print('{} SÍ es un palíndromo '. format(word))
