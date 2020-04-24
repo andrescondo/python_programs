@@ -1,4 +1,4 @@
-# 
+# Realice un ciclo donde si el numero es excatamente divisible para 3 elevalo al cuadrado, y si el numero es 22 cierra el ciclo
 print('\nRealice un ciclo donde si el numero es excatamente divisible para 3 elevalo al cuadrado, y si el numero es 22 cierra el ciclo\n')
 for i in range(30):
   if i % 3 == 0:
@@ -14,3 +14,5 @@ for a in range(30):
     print(a)
   elif a == 22:
     break
+
+ 
