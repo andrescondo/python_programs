@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 
 def run():
-    word = 'hay'
+    word = 'Beatriz'
     counter = 0
     with open('aleph.txt') as f:
         for line in f :
