@@ -30,6 +30,15 @@ class ContactBook:
             if contact.name.lower() == name.lower():
                 del self._contacts[idx]
                 break
+  
+
+    def search(self, name):
+        for contact in self._contacts:
+            if contact.name.lower() == name.lower():
+                self._print_contact(contact)
+                break
+        else:
+            self._not_found()
 
 
     def _print_contact(self, contact):
@@ -38,6 +47,13 @@ class ContactBook:
         print('Telefono: {}'.format(contact.phone))
         print('Email: {}'.format(contact.email))
         print('---*---*---*---*---*---*---*---*---*---*---*')
+
+
+
+    def _not_found(self):
+        print('*********************')
+        print('¡No encontrado!')
+        print('*********************')
 
 
 def run():
@@ -69,7 +85,10 @@ def run():
             print('actualizar contacto')
 
         elif command == 'b':
-            print('buscar contacto')
+            name = str(input('Escriba el nombre del contacto: '))
+
+            contact_book.search(name)
+
 
         elif command == 'e':
             name = str(input('Escriba el nombre del contacto: '))
