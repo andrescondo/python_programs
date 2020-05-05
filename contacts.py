@@ -5,9 +5,9 @@ class Contact:
     #constructor (parametros(self, ))
     def __init__(self, name, phone, email ):
         #guion bajo sig. es privada
-        self._name = name
-        self._phone = phone
-        self._email = email
+        self.name = name
+        self.phone = phone
+        self.email = email
 
 
 class ContactBook:
@@ -17,8 +17,27 @@ class ContactBook:
 
 
     def add(self, name, phone, email):
-        print('name: {}, phone: {}, email: {}'.format(name, phone, email))
+        contact = Contact(name, phone, email)
+        self._contacts.append(contact)
 
+
+    def show_all(self):
+        for contact in self._contacts:
+            self._print_contact(contact)
+
+    def delete(self, name):
+        for idx, contact in enumerate(self._contacts):
+            if contact.name.lower() == name.lower():
+                del self._contacts[idx]
+                break
+
+
+    def _print_contact(self, contact):
+        print('---*---*---*---*---*---*---*---*---*---*---*')
+        print('Nombre: {}'.format(contact.name))
+        print('Telefono: {}'.format(contact.phone))
+        print('Email: {}'.format(contact.email))
+        print('---*---*---*---*---*---*---*---*---*---*---*')
 
 
 def run():
@@ -41,7 +60,7 @@ def run():
         if command == 'a':
 
             name = str(input('Escriba el nombre del contacto: '))
-            phone = str(input('Escribe el tel del contacto: '))
+            phone = str(input('Escribe el telefono del contacto: '))
             email = str(input('Escribe el email del contacto: '))
 
             contact_book.add(name, phone, email)
@@ -53,10 +72,14 @@ def run():
             print('buscar contacto')
 
         elif command == 'e':
-            print('eliminar contacto')
+            name = str(input('Escriba el nombre del contacto: '))
+
+            contact_book.delete(name)
+
 
         elif command == 'l':
-            print('listar conctactos')
+            
+            contact_book.show_all()
 
         elif command == 's':
             break
