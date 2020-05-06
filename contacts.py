@@ -45,14 +45,6 @@ class ContactBook:
             self._not_found()
 
 
-    def _save(self):
-        with open('contacts.csv' , 'w', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerow( ('name', 'phone', 'email'))
-
-            for contact in self._contacts:
-                writer.writerow((contact.name, contact.phone, contact.email))
-
 
     def _print_contact(self, contact):
         print('---*---*---*---*---*---*---*---*---*---*---*')
@@ -82,9 +74,17 @@ class ContactBook:
             self._contacts[idx].name = newName 
             self._contacts[idx].phone = newPhone
             self._contacts[idx].email = newEmail
-
             self._save()
             break
+
+    def _save(self):
+        with open('contacts.csv' , 'w', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow( ('name', 'phone', 'email'))
+
+            for contact in self._contacts:
+                writer.writerow((contact.name, contact.phone, contact.email))
+
 
 def run():
 
