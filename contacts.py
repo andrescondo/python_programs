@@ -56,6 +56,22 @@ class ContactBook:
         print('*********************')
 
 
+    def update(self, name):
+        for idx, contact in enumerate(self._contacts):
+            if contact.name.lower() == name.lower():
+                self._print_contact(contact)
+
+            print('INGRESE NUEVOS DATOS')
+            newName = str(input('Ingrese nombre: '))
+            newPhone = str(input('Ingrese número teléfonico: '))
+            newEmail= str(input('Ingrese email: '))
+
+            self._contacts[idx].name = newName 
+            self._contacts[idx].phone = newPhone
+            self._contacts[idx].email = newEmail
+
+            break
+
 def run():
 
     contact_book = ContactBook()
@@ -82,7 +98,10 @@ def run():
             contact_book.add(name, phone, email)
 
         elif command == 'ac':
-            print('actualizar contacto')
+            name = str(input('Escriba el nombre del contacto: '))
+
+            contact_book.update(name)
+
 
         elif command == 'b':
             name = str(input('Escriba el nombre del contacto: '))
