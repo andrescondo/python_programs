@@ -82,14 +82,20 @@ def binary_encrypt(cypher_message):
 def encrypt(message):
     words = message.split(' ')
     cypher_message = []
+    code_ascii = []
 
     for word in words:
         cypher_words = ''
         for letter in word:
             cypher_words += KEYS[letter]
+            code = KEYS[letter].split(' ')
+            code_ascii.append(code)
 
-            print(cypher_words)
+            print(code_ascii)
+        
+
         cypher_message.append(cypher_words)
+
 
         binary_encrypt(cypher_words)
 
