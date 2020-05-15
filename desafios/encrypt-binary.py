@@ -71,9 +71,24 @@ KEYS = {
 
 }
 
-def binary_encrypt(cypher_message):
-    binarys = cypher_message.split(' ')
-    binary_message = []
+
+def binary_encrypt(code_ascii):
+    encrypt = []
+    # print(code_ascii)
+
+    for i in range(len(code_ascii)):
+        encrypt = encrypt + [int(code_ascii[i])]
+        print(encrypt[i])
+
+        
+        binary = encrypt[i] % 2
+        print(binary)
+
+
+        # if encrypt[i] == 0 :
+        #     return 0
+        # else:
+
 
 
 
@@ -88,18 +103,16 @@ def encrypt(message):
         cypher_words = ''
         for letter in word:
             cypher_words += KEYS[letter]
-            code = KEYS[letter].split(' ')
-            code_ascii.append(code)
-
-            print(code_ascii)
+            code_ascii.append(KEYS[letter])
+        
+        binary_encrypt(code_ascii)
         
 
-        cypher_message.append(cypher_words)
+        # cypher_message.append(cypher_words)
 
 
-        binary_encrypt(cypher_words)
-
-    return ' '.join(cypher_message)
+    
+    # return ' '.join(cypher_message)
 
 
 
@@ -119,6 +132,7 @@ def run():
         cypher_message = encrypt(message)
         print(cypher_message)
 
+       
 
 if __name__ == '__main__':
     run()
