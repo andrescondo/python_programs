@@ -80,17 +80,14 @@ def binary_encrypt(code_ascii):
         encrypt = encrypt + [int(code_ascii[i])]
         print(encrypt[i])
 
-        
-        binary = encrypt[i] % 2
-        print(binary)
+        for a in i: 
+            binary = encrypt[i] % 2
+            print(binary)
 
 
         # if encrypt[i] == 0 :
         #     return 0
         # else:
-
-
-
 
 
 
@@ -110,8 +107,6 @@ def encrypt(message):
 
         # cypher_message.append(cypher_words)
 
-
-    
     # return ' '.join(cypher_message)
 
 
