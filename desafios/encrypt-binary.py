@@ -74,15 +74,24 @@ KEYS = {
 
 def binary_encrypt(code_ascii):
     encrypt = []
+    div = []
+    code = []
     # print(code_ascii)
 
     for i in range(len(code_ascii)):
         encrypt = encrypt + [int(code_ascii[i])]
+        
         print(encrypt[i])
 
-        for a in i: 
-            binary = encrypt[i] % 2
-            print(binary)
+        div = encrypt[i] / 2
+
+        if div == 0:
+            continue
+        else:
+            code = div % 2
+
+       
+        print(code)
 
 
         # if encrypt[i] == 0 :
@@ -93,7 +102,7 @@ def binary_encrypt(code_ascii):
 
 def encrypt(message):
     words = message.split(' ')
-    cypher_message = []
+    #cypher_message = []
     code_ascii = []
 
     for word in words:
