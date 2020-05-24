@@ -2,7 +2,7 @@
 # -*- coding: utf-8  -*-
 
 KEYS = {
-  'a': '97',
+ 'a': '97',
   'b': '98',
   'c': '99',
   'd': '100',
@@ -68,36 +68,33 @@ KEYS = {
   ',': '44',
   '?': '63',
   '!': '33',
-
 }
 
 
-def binary_encrypt(code_ascii):
+
+
+def conver_num(code_ascii):
     encrypt = []
-    div = []
     code = []
-    # print(code_ascii)
+    binary = ''
 
     for i in range(len(code_ascii)):
         encrypt = encrypt + [int(code_ascii[i])]
-        
-        print(encrypt[i])
+    num = len(encrypt)
+    # for a in range(1,len(encrypt)):
+        while encrypt[i] // 2 != 0:
+            binary  = str(encrypt[i] % 2) + binary
+            encrypt[i] = encrypt[i] // 2
 
-        div = encrypt[i] / 2
 
-        if div == 0:
-            continue
-        else:
-            code = div % 2
+
+
+
+    print('ASCII {},cantidad : {} binary {}'.format(encrypt,num, binary))
+
+
 
        
-        print(code)
-
-
-        # if encrypt[i] == 0 :
-        #     return 0
-        # else:
-
 
 
 def encrypt(message):
@@ -110,8 +107,8 @@ def encrypt(message):
         for letter in word:
             cypher_words += KEYS[letter]
             code_ascii.append(KEYS[letter])
-        
-        binary_encrypt(code_ascii)
+        print(code_ascii)
+        conver_num(code_ascii)
         
 
         # cypher_message.append(cypher_words)
